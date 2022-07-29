@@ -75,3 +75,6 @@ alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PYPI_USERNAME="user"
+export PYPI_PASSWORD="Hdnfmdka12me"

@@ -1,8 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/belo/.oh-my-zsh"
+# Path to your oh-my-zsh installation.  export ZSH="$HOME/.oh-my-zsh"
 [ -z "$TMUX" ] && export TERM=xterm-256color
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -38,7 +37,7 @@ ENABLE_CORRECTION="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 
-plugins=(git colorize ubuntu vi-mode python pipenv)
+plugins=(git colorize ubuntu vi-mode python pipenv lets kubectl kubectx helm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,6 +46,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export PATH=$PATH:$HOME/bin
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/home/belo/.local/bin:$PATH
 # You may need to manually set your language environment
@@ -61,7 +61,7 @@ export MANWIDTH=999
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="nvim"
+alias vi="/usr/bin/nvim.appimage"
 export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.vim
@@ -75,3 +75,10 @@ alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+export MILVUSDM_PATH='/home/a.belo/milvusdm'
+export LOGS_NUM=0
+
+autoload -U compinit && compinit

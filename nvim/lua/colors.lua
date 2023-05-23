@@ -7,6 +7,7 @@ vim.cmd([[
 
 
 -- " For dark or light version.
+vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
 vim.cmd [[colorscheme nord]]
@@ -41,7 +42,7 @@ require('lualine').setup {
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {},
+    lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {'location'},
     lualine_y = {},
@@ -53,13 +54,6 @@ require('lualine').setup {
 }
 require('lualine').setup()
 
-vim.opt.termguicolors = true
-require("bufferline").setup{
-  options = {
-    numbers = 'ordinal',
-    offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = 'center' } },
-  }
-}
 
 vim.cmd [[
   hi CursorLineNR cterm=bold

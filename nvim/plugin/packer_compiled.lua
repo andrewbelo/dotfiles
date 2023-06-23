@@ -114,15 +114,13 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  ["forest-night"] = {
-    loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/forest-night",
-    url = "https://github.com/sainnhe/forest-night"
-  },
-  ["gruvbox-material"] = {
-    loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
+  ["dashboard-nvim"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14dashboard\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -246,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -260,6 +263,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gotham"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-gotham",
+    url = "https://github.com/whatyouhide/vim-gotham"
+  },
+  ["vim-instant-markdown"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
+    url = "https://github.com/instant-markdown/vim-instant-markdown"
   },
   ["vim-markdown-toc"] = {
     loaded = true,
@@ -286,15 +299,15 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-python-pep8-indent",
     url = "https://github.com/Vimjas/vim-python-pep8-indent"
   },
+  ["vim-rooter"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-rooter",
+    url = "https://github.com/airblade/vim-rooter"
+  },
   ["vim-sneak"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-startify",
-    url = "https://github.com/mhinz/vim-startify"
   },
   ["vim-stay"] = {
     loaded = true,
@@ -349,6 +362,13 @@ time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

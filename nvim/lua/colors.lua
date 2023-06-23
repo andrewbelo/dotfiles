@@ -10,15 +10,15 @@ vim.cmd([[
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-vim.cmd [[colorscheme nord]]
+vim.cmd [[colorscheme tokyonight-moon]]
 
 -- Lualine setup
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'nord',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    theme = 'tokyonight',
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -33,18 +33,18 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_b = { 'branch' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
   },
@@ -61,4 +61,3 @@ vim.cmd [[
       autocmd! ColorScheme * hi CursorLineNR cterm=bold
   augroup END
 ]]
-

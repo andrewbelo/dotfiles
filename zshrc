@@ -47,6 +47,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+### Set manpager
+### "bat" as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+### "vim" as manpager
+# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+
+### "nvim" as manpager
+# export MANPAGER="nvim -c 'set ft=man' -"
+
 export PATH=$PATH:$HOME/bin
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/home/belo/.local/bin:$PATH
@@ -57,8 +68,6 @@ export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
 export EDITOR=nvim
-export MANPAGER='vi +Man!'
-export MANWIDTH=999
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -68,16 +77,21 @@ export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
 # Python Shortcuts & virtualenvwrapper config
-alias py='/usr/bin/python3'
+alias py='/usr/bin/python3.11'
+alias pyso='source .venv/bin/activate'
 alias pip=pip3
-export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.11'
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
+alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+alias gs='git status'
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.config/picum/build/src:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/a.belo/.cargo/bin
 export PATH="${PATH}:${HOME}/.krew/bin"
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'

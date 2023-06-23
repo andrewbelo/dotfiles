@@ -4,13 +4,22 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use { 'mhinz/vim-startify' }
+  use {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        -- config
+      }
+    end,
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
 
   --  Looks
   use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
-  use { 'sainnhe/forest-night' }
-  use { 'sainnhe/gruvbox-material' }
+  use { 'whatyouhide/vim-gotham' }
   use { 'arcticicestudio/nord-vim' }
+  use { 'folke/tokyonight.nvim' }
   use { 'sheerun/vim-polyglot' }
   use { 'ryanoasis/vim-devicons' }
   use { 'Konfekt/FastFold' }
@@ -100,7 +109,9 @@ return require('packer').startup(function(use)
   -- " Work outside terminal
   use { 'tyru/open-browser.vim' }
   use { 'weirongxu/plantuml-previewer.vim' }
+  use { 'instant-markdown/vim-instant-markdown' }
 
   -- " Unknown purpose
   use { 'tmux-plugins/vim-tmux' }
+  use { 'airblade/vim-rooter' }
 end)

@@ -14,7 +14,7 @@ local cmp = require('cmp')
 cmp.setup {
   sources = {
     { name = 'path' },
-    {name = 'nvim_lsp'},
+    { name = 'nvim_lsp' },
     {
       name = 'buffer',
       option = {
@@ -66,7 +66,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-  lsp.buffer_autoformat()
 end)
 
 lsp.format_on_save({
@@ -76,8 +75,8 @@ lsp.format_on_save({
   },
   servers = {
     ['lua_ls'] = { 'lua' },
-    ['jedi-language-server'] = { 'python' },
-    ['yamlfix '] = { 'yaml' },
+    ['null-ls'] = { 'python' },
+    ['yamlfix'] = { 'yaml' },
   }
 })
 

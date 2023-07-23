@@ -6,8 +6,8 @@ vim.cmd("command! BufOnly execute '%bdelete|edit #|normal \"'")
 vim.cmd [[
     let g:python3_host_prog = substitute(system("which python3"), '\n\+$', '', '')
 ]]
-
 vim.cmd("set list listchars=tab:»·,trail:·,nbsp:·")
+vim.cmd [[autocmd BufWritePre *.py :%s/\s\+$//e]]
 
 vim.opt.undofile = true
 vim.opt.undodir = HOME .. "/.vim/undo"
@@ -34,14 +34,14 @@ vim.opt.colorcolumn = "81"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.history=200
+vim.opt.history = 200
 
-vim.opt.wildmenu = true                 -- Enable emnhanced tab autocomplete.
-vim.opt.wildmode = "list:longest,full"  -- Complete till longest string, then open menu.
-vim.opt.hlsearch = true                 -- Highlight search results.
-vim.opt.incsearch = true                -- Search as you type.
+vim.opt.wildmenu = true                -- Enable emnhanced tab autocomplete.
+vim.opt.wildmode = "list:longest,full" -- Complete till longest string, then open menu.
+vim.opt.hlsearch = true                -- Highlight search results.
+vim.opt.incsearch = true               -- Search as you type.
 
 vim.opt.mouse = "nv"
-vim.opt.clipboard = "unnamed,unnamedplus"  -- Copy into system (*, +) registers.
+vim.opt.clipboard = "unnamed,unnamedplus" -- Copy into system (*, +) registers.
 
 vim.opt.path = vim.opt.path + "**"

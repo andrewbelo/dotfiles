@@ -94,11 +94,6 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/bclose.vim",
     url = "https://github.com/rbgrouleff/bclose.vim"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   ["calendar-vim"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/calendar-vim",
@@ -109,15 +104,28 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["forest-night"] = {
+  conjure = {
     loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/forest-night",
-    url = "https://github.com/sainnhe/forest-night"
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/conjure",
+    url = "https://github.com/Olical/conjure"
   },
-  ["gruvbox-material"] = {
+  ["copilot.vim"] = {
     loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/gruvbox-material",
-    url = "https://github.com/sainnhe/gruvbox-material"
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
+  ["dashboard-nvim"] = {
+    config = { "\27LJ\2\n�\2\0\0\6\0\v\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\0034\4\3\0005\5\6\0>\5\1\0045\5\a\0>\5\2\4=\4\b\0034\4\0\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\vconfig\vfooter\vcenter\1\0\5\vkeymap\fSPC f d\vaction\17lua print(3)\tdesc\18Find Dotfiles\ticon\t \bkey\6f\1\0\b\fdesc_hl\vString\tdesc\25Find File in git    \vaction\25Telescope find_files\ficon_hl\nTitle\vkey_hl\vNumber\ticon\t \bkey\6b\vkeymap\fSPC f f\vheader\1\0\0\1\0\1\ntheme\tdoom\nsetup\14dashboard\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -134,6 +142,11 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/mason-null-ls.nvim",
+    url = "https://github.com/jay-babu/mason-null-ls.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/mason.nvim",
@@ -143,6 +156,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nord-vim",
     url = "https://github.com/arcticicestudio/nord-vim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -164,6 +182,18 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
+  ["nvim-treesitter-textobjects"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -184,10 +214,10 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["plantuml-previewer.vim"] = {
+  ["peek.nvim"] = {
     loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/plantuml-previewer.vim",
-    url = "https://github.com/weirongxu/plantuml-previewer.vim"
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/peek.nvim",
+    url = "https://github.com/toppair/peek.nvim"
   },
   playground = {
     loaded = true,
@@ -219,6 +249,11 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -233,6 +268,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gotham"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-gotham",
+    url = "https://github.com/whatyouhide/vim-gotham"
+  },
+  ["vim-markdown-toc"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-markdown-toc",
+    url = "https://github.com/mzlogin/vim-markdown-toc"
   },
   ["vim-mundo"] = {
     loaded = true,
@@ -258,11 +303,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-startify",
-    url = "https://github.com/mhinz/vim-startify"
   },
   ["vim-stay"] = {
     loaded = true,
@@ -300,7 +340,6 @@ _G.packer_plugins = {
     url = "https://github.com/pedrohdz/vim-yaml-folds"
   },
   ["zen-mode.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0" },
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
     url = "https://github.com/folke/zen-mode.nvim"
@@ -308,10 +347,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
-time([[Config for zen-mode.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

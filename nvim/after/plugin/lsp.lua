@@ -5,6 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'lua_ls',
+  'jedi_language_server',
 })
 
 -- Fix Undefined global 'vim'
@@ -15,6 +16,8 @@ cmp.setup {
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp' },
+    { name = 'zk' },
+    { name = 'conjure' },
     {
       name = 'buffer',
       option = {
@@ -70,17 +73,16 @@ end)
 
 lsp.format_on_save({
   format_opts = {
-    async = false,
+    async = true,
     timeout_ms = 10000,
   },
   servers = {
     ['lua_ls'] = { 'lua' },
-    ['null-ls'] = { 'python' },
+    ['null-ls'] = { 'python', 'clojure', 'telekasten', 'markdown' },
+    ['sqlfmt'] = { 'sql' },
     ['yamlfix'] = { 'yaml' },
   }
 })
-
-
 lsp.setup()
 
 vim.diagnostic.config({

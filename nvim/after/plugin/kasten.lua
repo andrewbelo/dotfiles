@@ -1,6 +1,6 @@
-local home = vim.fn.expand("~/zettelkasten")
+local home = vim.fn.expand("~/personal/zettelkasten")
 
-require('telekasten').setup({
+local telekasten = require('telekasten').setup({
     home                        = home,
 
     -- if true, telekasten will be enabled when opening a note within the configured home
@@ -107,13 +107,35 @@ require('telekasten').setup({
 vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
 
 -- Most used functions
-vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
-vim.keymap.set("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>")
-vim.keymap.set("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
-vim.keymap.set("n", "<leader>zw", "<cmd>Telekasten goto_thisweek<CR>")
-vim.keymap.set("n", "<leader>zx", "<cmd>Telekasten follow_link<CR>")
-vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
-vim.keymap.set("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
-vim.keymap.set("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
-vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
-vim.keymap.set("n", "<leader>zi", "<cmd>Telekasten insert_link<CR>")
+vim.keymap.set("n", "<leader>zn", ":lua require('telekasten').new_note()<CR>")
+vim.keymap.set("n", "<leader>zN", ":lua require('telekasten').new_templated_note()<CR>")
+
+vim.keymap.set("n", "<leader>zb", ":lua require('telekasten').show_backlinks()<CR>")
+vim.keymap.set("n", "<leader>za", ":lua require('telekasten').show_tags()<CR>")
+vim.keymap.set("n", "<leader>#", ":lua require('telekasten').show_tags()<CR>")
+vim.keymap.set("n", "<leader>zr", ":lua require('telekasten').rename_note()<CR>")
+
+vim.keymap.set("n", "<leader>zF", ":lua require('telekasten').find_friends()<CR>")
+vim.keymap.set("n", "<leader>zf", ":lua require('telekasten').find_notes()<CR>")
+vim.keymap.set("n", "<leader>zg", ":lua require('telekasten').search_notes()<CR>")
+vim.keymap.set("n", "<leader>zx", ":lua require('telekasten').follow_link()<CR>")
+
+vim.keymap.set("n", "<leader>zd", ":lua require('telekasten').goto_today()<CR>")
+vim.keymap.set("n", "<leader>zw", ":lua require('telekasten').goto_thisweek()<CR>")
+vim.keymap.set("n", "<leader>zW", ":lua require('telekasten').find_weekly_notes()<CR>")
+vim.keymap.set("n", "<leader>zD", ":lua require('telekasten').find_daily_notes()<CR>")
+
+vim.keymap.set("n", "<leader>zy", ":lua require('telekasten').yank_notelink()<CR>")
+vim.keymap.set("n", "<leader>zc", ":lua require('telekasten').show_calendar()<CR>")
+vim.keymap.set("n", "<leader>zC", ":CalendarT<CR>")
+vim.keymap.set("n", "<leader>zi", ":lua require('telekasten').paste_img_and_link()<CR>")
+vim.keymap.set("n", "<leader>zt", ":lua require('telekasten').toggle_todo()<CR>")
+vim.keymap.set("n", "<leader>zI", ":lua require('telekasten').insert_img_link({ i=true })<CR>")
+vim.keymap.set("n", "<leader>zp", ":lua require('telekasten').preview_img()<CR>")
+vim.keymap.set("n", "<leader>zm", ":lua require('telekasten').browse_media()<CR>")
+
+vim.cmd [[
+    autocmd FileType telekasten inoremap [[ <cmd>:lua require('telekasten').insert_link({ i=true })<CR>
+    autocmd FileType telekasten inoremap <leader>zt <cmd>:lua require('telekasten').toggle_todo({ i=true })<CR>
+    autocmd FileType telekasten inoremap <leader># <cmd>:lua require('telekasten').show_tags({i = true})<CR>
+]]

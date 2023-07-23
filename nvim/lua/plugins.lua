@@ -9,14 +9,36 @@ return require('packer').startup(function(use)
     event = 'VimEnter',
     config = function()
       require('dashboard').setup {
-        -- config
+        theme = 'doom',
+        config = {
+          header = {}, --your header
+          center = {
+            {
+              icon = ' ',
+              icon_hl = 'Title',
+              desc = 'Find File in git    ',
+              desc_hl = 'String',
+              key = 'b',
+              keymap = 'SPC f f',
+              key_hl = 'Number',
+              action = 'Telescope find_files'
+            },
+            {
+              icon = ' ',
+              desc = 'Find Dotfiles',
+              key = 'f',
+              keymap = 'SPC f d',
+              action = 'lua print(3)'
+            },
+          },
+          footer = {} --your footer
+        }
       }
     end,
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
 
   --  Looks
-  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
   use { 'whatyouhide/vim-gotham' }
   use { 'arcticicestudio/nord-vim' }
   use { 'folke/tokyonight.nvim' }
@@ -37,6 +59,7 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-surround' }
 
   --  navigation
+  use { 'ThePrimeagen/harpoon' }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -45,6 +68,7 @@ return require('packer').startup(function(use)
     end, }
   use { "nvim-treesitter/playground" }
   use { "nvim-treesitter/nvim-treesitter-context" }
+  use { "p00f/nvim-ts-rainbow" }
   use({
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
@@ -69,7 +93,6 @@ return require('packer').startup(function(use)
   use { 'renerocksai/calendar-vim' }
   use {
     "folke/zen-mode.nvim",
-    config = function() require("zen-mode").setup {} end
   }
 
   --  Autocompete & autoindent
@@ -108,10 +131,8 @@ return require('packer').startup(function(use)
 
   -- " Work outside terminal
   use { 'tyru/open-browser.vim' }
-  use { 'weirongxu/plantuml-previewer.vim' }
-  use { 'instant-markdown/vim-instant-markdown' }
+  use { 'Olical/conjure' }
 
   -- " Unknown purpose
   use { 'tmux-plugins/vim-tmux' }
-  use { 'airblade/vim-rooter' }
 end)

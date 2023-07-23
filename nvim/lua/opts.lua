@@ -7,6 +7,7 @@ vim.cmd [[
     let g:python3_host_prog = substitute(system("which python3"), '\n\+$', '', '')
 ]]
 vim.cmd("set list listchars=tab:»·,trail:·,nbsp:·")
+vim.cmd [[autocmd BufWritePre *.py :%s/\s\+$//e]]
 
 vim.opt.undofile = true
 vim.opt.undodir = HOME .. "/.vim/undo"

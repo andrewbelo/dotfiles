@@ -67,7 +67,7 @@ export LC_ALL=en_GB.UTF-8
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
-export EDITOR=nvim
+export EDITOR=/usr/bin/nvim.appimage
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -79,6 +79,7 @@ export MYVIMRC=$VIMCOFIG/init.lua
 # Python Shortcuts & virtualenvwrapper config
 alias py='/usr/bin/python3.11'
 alias pyso='source .venv/bin/activate'
+alias zshso='source ~/.zshrc'
 alias pip=pip3
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.11'
 export WORKON_HOME=$HOME/.virtualenvs
@@ -87,12 +88,17 @@ alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
 alias gs='git status'
 
+source ~/dotfiles/fzf/completion.zsh
+source ~/dotfiles/fzf/key-bindings.zsh
+bindkey -s ^k "tmux-sessionizer\n"
+bindkey -s ^p "ranger\n"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.config/picum/build/src:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/a.belo/.cargo/bin
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/dotfiles/scripts"
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0

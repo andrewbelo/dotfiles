@@ -8,5 +8,5 @@ vim.g.instant_markdown_autostart = 0
 -- vim.g.instant_markdown_mermaid = 1
 -- vim.g.instant_markdown_logfile = '/tmp/instant_markdown.log'
 vim.g.instant_markdown_autoscroll = 0
--- vim.g.instant_markdown_port = 8888
+vim.g.instant_markdown_port = 8888
 -- vim.g.instant_markdown_python = 1

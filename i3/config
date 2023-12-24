@@ -30,11 +30,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# change volume or toggle mute
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -56,11 +51,11 @@ bindsym $mod+t exec kitty --class=scratchpad /home/a.belo/dotfiles/scripts/tmux-
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -193,7 +188,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+        position top
+        status_command SCRIPT_DIR=~/dotfiles/i3blocks-contrib i3blocks
         separator_symbol "|"
         colors {
                 background #1a1b26
@@ -227,14 +223,21 @@ set_from_resource $term_color15    color15
 # ------------------------------------------
 
 bindsym $mod+Shift+q exec i3lock -f -c 24283b
+bindsym $mod+Shift+period exec i3lock -f -c 24283b && systemctl suspend
 # bindsym $mod+Shift+s exec --no-startup-id ~/dotfiles/bin/monitor
 # bindsym $mod+Shift+n exec --no-startup-id ~/dotfiles/bin/resolution
 
-bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 20 && pkill -RTMIN+9 i3blocks # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 && pkill -RTMIN+9 i3blocks # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause 
@@ -247,7 +250,6 @@ bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
 bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
 
 # Sutmux-sessionizer
-bindsym $mod+Shift+period exec i3lock -f -c 24283b && systemctl suspend
 bindsym $mod+Shift+p exec picom -b
 bindsym $mod+p exec killall picom
 
@@ -351,13 +353,14 @@ exec google-chrome
 
 exec kitty --class=main-terminal /home/a.belo/dotfiles/scripts/tmux-sessionizer
 
+exec --no-startup-id i3-battery-popup -n
 exec --no-startup-id kitty --class=service-kitty htop
 exec --no-startup-id kitty --class=service-kitty gping 74.125.128.101
 exec --no-startup-id kitty --class=service-kitty spt
 exec --no-startup-id kitty --class=side-terminal 
 exec --no-startup-id kitty --class=side-terminal /home/a.belo/dotfiles/scripts/tmux-sessionizer /home/a.belo/personal/zettelkasten
 
-floating_maximum_size 1200 x 700
+floating_maximum_size 1200 x 900
 
 assign [class="^service-kitty$"] $ws1
 assign [class="^main-terminal$"] $ws2
@@ -365,6 +368,7 @@ assign [class="^side-terminal$"] $ws3
 assign [class="^Slack$"] $ws10
 assign [class="^Google-chrome$"] $ws10
 assign [class="^firefox$"] $ws7
+assign [class="i3lock"] $ws7
 
 for_window [class="scratchpad"] floating enable sticky enable
 for_window [class="Galculator" instance="galculator"] floating enable sticky enable
@@ -372,3 +376,4 @@ for_window [class="vlc" instance="vlc"] floating enable
 for_window [class="^Spotify$"] floating enable move scratchpad
 for_window [title="^spt$"] floating enable sticky enable move scratchpad
 for_window [class="eog"] floating enable sticky enable 
+

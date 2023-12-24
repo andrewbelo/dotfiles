@@ -25,7 +25,10 @@ null_ls.setup({
         })
         ,
 
-        null_ls.builtins.formatting.joker.with({
+        null_ls.builtins.diagnostics.clj_kondo.with({
+            filetypes = { "clojure" },
+        }),
+        null_ls.builtins.formatting.cljstyle.with({
             filetypes = { "clojure" },
         }),
     },

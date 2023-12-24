@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="intheloop"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -38,7 +38,12 @@ ENABLE_CORRECTION="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 
-plugins=(git colorize ubuntu vi-mode python pipenv lets kubectl kubectx helm)
+plugins=(
+    git colorize ubuntu vi-mode
+    pdm python pip lets kubectl kubectx
+    docker docker-compose
+    helm fzf spaceship-vi-mode
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -58,6 +63,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 ### "nvim" as manpager
 # export MANPAGER="nvim -c 'set ft=man' -"
 
+PROMPT='$(kube_ps1)'$PROMPT
 export PATH=$PATH:$HOME/bin
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/home/belo/.local/bin:$PATH
@@ -81,12 +87,16 @@ alias py='/usr/bin/python3.11'
 alias pyso='source .venv/bin/activate'
 alias zshso='source ~/.zshrc'
 alias pip=pip3
-export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.11'
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
 alias gs='git status'
+alias jme='jira issue list \
+    -q "Sprint in openSprints() AND Sprint not in futureSprints() AND resolution = Unresolved AND assignee in (currentUser())" \
+    --order-by updated --columns key,summary,status,reporter'
+
+alias day='gcalcli agenda --details conference $(date +%m-%d) $(date -d '+1 day' +%m-%d)'
 
 source ~/dotfiles/fzf/completion.zsh
 source ~/dotfiles/fzf/key-bindings.zsh
@@ -95,12 +105,41 @@ bindkey -s ^p "ranger\n"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.config/picum/build/src:$PATH"
+export PATH="$HOME/work/datagrip/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:${HOME}/go/bin
 export PATH=$PATH:/home/a.belo/.cargo/bin
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
+export PATH="${PATH}:~/.local/share/coursier/bin"
+export PATH="${PATH}:${HOME}/bin"
+
+export SPACESHIP_CONFIG="$HOME/dotfiles/spaceship.zsh"
+source $SPACESHIP_CONFIG
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
+export JIRA_API_TOKEN='MTQxMTY5Mzc0MzMyOlZYynUsksq9DSY9I5gHKW/tLIsR'
+export JIRA_AUTH_TYPE='bearer'
 
 autoload -U compinit && compinit
+
+# Turso
+export PATH="/home/a.belo/.turso:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/a.belo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/a.belo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/a.belo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/a.belo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+autoload -U compinit; compinit

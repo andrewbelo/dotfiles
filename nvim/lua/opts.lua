@@ -8,13 +8,38 @@ vim.cmd [[
 ]]
 vim.cmd("set list listchars=tab:»·,trail:·,nbsp:·")
 vim.cmd [[autocmd BufWritePre *.py :%s/\s\+$//e]]
+vim.api.nvim_create_autocmd("BufNewFile", {
+    group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+    pattern = { "conjure-log-*" },
+    callback = function() vim.diagnostic.disable(0) end,
+    desc = "Conjure Log disable LSP diagnostics",
+})
+vim.api.nvim_create_autocmd("BufWritePost", {
+    group = vim.api.nvim_create_augroup("conceallevel_2", { clear = true }),
+    pattern = { "*.md" },
+    callback = function() vim.opt.conceallevel = 2 end,
+    desc = "Set conceallevel=2 on markdown files after save",
+})
 
-vim.opt.undofile = true
-vim.opt.undodir = HOME .. "/.vim/undo"
+--  the same in lua
+vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+    group = vim.api.nvim_create_augroup("setfiletype_dockerfile", { clear = true }),
+    pattern = { "*.dockerfile" },
+    callback = function() vim.bo.filetype = "dockerfile" end,
+    desc = "Set filetype=dockerfile on *.dockerfile files",
+})
+
+
+
 vim.g.ranger_map_keys = 0
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.ranger_replace_netrw = 1
 
+vim.opt.conceallevel = 2
+vim.g.vim_json_syntax_concealcursor = 2
+vim.opt.concealcursor = "nc"
+vim.opt.undofile = true
+vim.opt.undodir = HOME .. "/.vim/undo"
 vim.opt.compatible = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true

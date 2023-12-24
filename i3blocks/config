@@ -31,6 +31,30 @@ markup=pango
 
 [lol]
 full_text=Good day, sir!
+color=#7aa2f7
+
+[docker]
+command=$SCRIPT_DIR/docker/docker
+color=#7aa2f7
+interval=10
+label= 
+
+[volume]
+command=$SCRIPT_DIR/volume/volume
+interval=once
+label=VOL
+signal=1
+color=#1a1b26
+background=#7aa2f7
+
+[light]
+command=$SCRIPT_DIR/light/light
+interval=once
+color=#7aa2f7
+label=☀
+signal=9
+#STEP_SIZE=5
+#USE_SUDO=0
 
 [disk]
 label=󰋊
@@ -38,48 +62,33 @@ command=$SCRIPT_DIR/disk/disk
 #DIR=/mnt/data
 color=#7aa2f7
 interval=30
-
-[docker]
-command=$SCRIPT_DIR/docker/docker
-color=#0db7ed
-interval=10
-label= 
-
-[backlight]
-command=$SCRIPT_DIR/backlight/backlight
-label=☀
-interval=20
-color=#7aa2f7
-#STEP_SIZE=5
-
-[openvpn]
-command=$SCRIPT_DIR/openvpn/openvpn
-interval=5
-label= VPN 
 color=#1a1b26
 background=#7aa2f7
+
+[nm-vpn]
+command=$SCRIPT_DIR/nm-vpn/nm-vpn
+interval=5
+label= VPN 
+interval=5
+
 
 # Guess the weather hourly
 [weather]
 command=curl -Ss 'https://wttr.in/Kyiv?format="%l+%c+%f(%p)"' | xargs echo
 interval=3600
-color=#7aa2f7
+color=#1a1b26
+background=#7aa2f7
 
 [weather2]
 command=curl -Ss 'https://wttr.in/Kyiv?format="%m(%S:%s)"' | xargs echo
 interval=3600
-color=#1a1b26
-background=#7aa2f7
+color=#7aa2f7
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[volume-pulseaudio]
-command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
-interval=once
-signal=1
 #MIXER=[determined automatically]
 #SCONTROL=[determined automatically]
 ##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}

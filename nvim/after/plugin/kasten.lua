@@ -7,7 +7,7 @@ local telekasten = require('telekasten').setup({
     take_over_my_home           = true,
     -- auto-set telekasten filetype: if false, the telekasten filetype will not be used
     --                               and thus the telekasten syntax will not be loaded either
-    auto_set_filetype           = true,
+    auto_set_filetype           = false,
 
     -- dir names for special notes (absolute path or subdir name)
     dailies                     = home .. '/' .. 'daily',
@@ -28,8 +28,7 @@ local telekasten = require('telekasten').setup({
     weeklies_create_nonexisting = true,
 
     -- template for new notes (new_note, follow_link)
-    -- set to `nil` or do not specify if you do not want a template
-    template_new_note           = home .. '/' .. 'templates/new.md',
+    -- set to `nil` or do not specify if you do not want a template template_new_note           = home .. '/' .. 'templates/new.md',
     template_new_daily          = home .. '/' .. 'templates/daily.md',
     template_new_weekly         = home .. '/' .. 'templates/weekly.md',
 
@@ -135,7 +134,7 @@ vim.keymap.set("n", "<leader>zp", ":lua require('telekasten').preview_img()<CR>"
 vim.keymap.set("n", "<leader>zm", ":lua require('telekasten').browse_media()<CR>")
 
 vim.cmd [[
-    autocmd FileType telekasten inoremap [[ <cmd>:lua require('telekasten').insert_link({ i=true })<CR>
+    autocmd FileType telekasten inoremap <learder>[ <cmd>:lua require('telekasten').insert_link({ i=true })<CR>
     autocmd FileType telekasten inoremap <leader>zt <cmd>:lua require('telekasten').toggle_todo({ i=true })<CR>
     autocmd FileType telekasten inoremap <leader># <cmd>:lua require('telekasten').show_tags({i = true})<CR>
 ]]

@@ -8,15 +8,25 @@ return require('packer').startup(function(use)
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     config = function()
+      local logo = [[
+ __   __  ___  _______    ________         ___    ___
+|"  |/  \|  "||   _  "\  /"       )       |"  |  |"  |
+|'  /    \:  |(. |_)  :)(:   \___/        ||  |  ||  |
+|: /'        ||:     \/  \___  \          |:  |  |:  |
+ \//  /\'    |(|  _  \\   __/  \\        _|  /  _|  /
+ /   /  \\   ||: |_)  :) /" \   :)      / |_/ )/ |_/ )
+|___/    \___|(_______/ (_______/      (_____/(_____/
+      ]]
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
       require('dashboard').setup {
         theme = 'doom',
         config = {
-          header = {}, --your header
+          header = vim.split(logo, "\n"), --your header
           center = {
             {
               icon = ' ',
               icon_hl = 'Title',
-              desc = 'Find File in git    ',
+              desc = 'Find File in git 1    ',
               desc_hl = 'String',
               key = 'b',
               keymap = 'SPC f f',
@@ -91,9 +101,7 @@ return require('packer').startup(function(use)
   use { 'toppair/peek.nvim', run = 'deno task --quiet build:fast' }
   use { 'mzlogin/vim-markdown-toc' }
   use { 'renerocksai/calendar-vim' }
-  use {
-    "folke/zen-mode.nvim",
-  }
+  use { 'folke/zen-mode.nvim' }
 
   --  Autocompete & autoindent
   use { 'github/copilot.vim' }
@@ -117,7 +125,10 @@ return require('packer').startup(function(use)
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },     -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'L3MON4D3/LuaSnip' }, -- Required
     }
   }
   use { 'tomtom/tcomment_vim' }
@@ -128,11 +139,14 @@ return require('packer').startup(function(use)
   }
   use { 'jiangmiao/auto-pairs' }
   use { 'pedrohdz/vim-yaml-folds' }
+  use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
 
   -- " Work outside terminal
+  use { 'jghauser/follow-md-links.nvim' }
   use { 'tyru/open-browser.vim' }
   use { 'Olical/conjure' }
 
   -- " Unknown purpose
   use { 'tmux-plugins/vim-tmux' }
+  use { 'yoshio15/vim-trello' }
 end)

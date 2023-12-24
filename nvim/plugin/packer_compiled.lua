@@ -99,10 +99,25 @@ _G.packer_plugins = {
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/calendar-vim",
     url = "https://github.com/renerocksai/calendar-vim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   conjure = {
     loaded = true,
@@ -115,12 +130,16 @@ _G.packer_plugins = {
     url = "https://github.com/github/copilot.vim"
   },
   ["dashboard-nvim"] = {
-    config = { "\27LJ\2\n�\2\0\0\6\0\v\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0004\4\0\0=\4\5\0034\4\3\0005\5\6\0>\5\1\0045\5\a\0>\5\2\4=\4\b\0034\4\0\0=\4\t\3=\3\n\2B\0\2\1K\0\1\0\vconfig\vfooter\vcenter\1\0\5\vkeymap\fSPC f d\vaction\17lua print(3)\tdesc\18Find Dotfiles\ticon\t \bkey\6f\1\0\b\fdesc_hl\vString\tdesc\25Find File in git    \vaction\25Telescope find_files\ficon_hl\nTitle\vkey_hl\vNumber\ticon\t \bkey\6b\vkeymap\fSPC f f\vheader\1\0\0\1\0\1\ntheme\tdoom\nsetup\14dashboard\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
+  },
+  ["follow-md-links.nvim"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/follow-md-links.nvim",
+    url = "https://github.com/jghauser/follow-md-links.nvim"
   },
   harpoon = {
     loaded = true,
@@ -171,6 +190,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-metals"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/nvim-metals",
+    url = "https://github.com/scalameta/nvim-metals"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -318,6 +342,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-tmux",
     url = "https://github.com/tmux-plugins/vim-tmux"
+  },
+  ["vim-trello"] = {
+    loaded = true,
+    path = "/home/a.belo/.local/share/nvim/site/pack/packer/start/vim-trello",
+    url = "https://github.com/yoshio15/vim-trello"
   },
   ["vim-unimpaired"] = {
     loaded = true,

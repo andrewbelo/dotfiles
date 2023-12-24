@@ -119,7 +119,6 @@ source $SPACESHIP_CONFIG
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
-export JIRA_API_TOKEN='MTQxMTY5Mzc0MzMyOlZYynUsksq9DSY9I5gHKW/tLIsR'
 export JIRA_AUTH_TYPE='bearer'
 
 autoload -U compinit && compinit

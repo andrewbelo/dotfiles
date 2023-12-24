@@ -1,8 +1,10 @@
 set $mod Mod4
 
-# TODO: -> ROFY !!!!
-bindsym $mod+Shift+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+Shift+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
+# bindsym $mod+Shift+s exec $HOME/.config/rofi/bin/powermenu
+# bindsym $mod+w exec $HOME/.config/rofi/bin/screenshot
 
 ## INCLUDES ####################################################################
 
@@ -11,7 +13,7 @@ include ~/.config/i3/off.conf
 
 include ~/.config/i3/looks.conf
 include ~/.config/i3/gaps.conf
-include ~/.config/i3/bar.conf # TODO: -> polybar !!!!
+include ~/.config/i3/bar.conf
 
 include ~/.config/i3/workspaces.conf
 include ~/.config/i3/resize.conf

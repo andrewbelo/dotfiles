@@ -1,12 +1,13 @@
 set $mod Mod4
 
-
 bindsym $mod+Shift+d exec rofi -show run
 bindsym $mod+d exec rofi -show drun
 # bindsym $mod+Shift+s exec $HOME/.config/rofi/bin/powermenu
 # bindsym $mod+w exec $HOME/.config/rofi/bin/screenshot
 
 ## INCLUDES ####################################################################
+
+include ~/.config/i3/workspaces.conf
 
 include ~/.config/i3/startup.conf
 include ~/.config/i3/off.conf
@@ -15,7 +16,6 @@ include ~/.config/i3/looks.conf
 include ~/.config/i3/gaps.conf
 include ~/.config/i3/bar.conf
 
-include ~/.config/i3/workspaces.conf
 include ~/.config/i3/resize.conf
 include ~/.config/i3/scratchpad.conf
 

@@ -1,0 +1,2 @@
+vim.g.vimTrelloApiKey = '2e6d70000df76cf735738a5dbe38c930'
+vim.g.vimTrelloToken = 'ATTA4b4772a7de0beb2ad381d1ffcf036d326bbdbf314dd4c10cc6a43c7204e5557243C06E30'

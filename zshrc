@@ -30,7 +30,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -74,6 +74,7 @@ export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
 export EDITOR=/usr/bin/nvim.appimage
+export VISUAL=/usr/bin/nvim.appimage
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -87,6 +88,7 @@ alias py='/usr/bin/python3.11'
 alias pyso='source .venv/bin/activate'
 alias zshso='source ~/.zshrc'
 alias pip=pip3
+alias ktx=kubectx
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
@@ -127,19 +129,6 @@ autoload -U compinit && compinit
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/a.belo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/a.belo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/a.belo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/a.belo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 autoload -U compinit; compinit
+
+eval $(thefuck --alias f)

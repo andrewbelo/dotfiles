@@ -73,13 +73,12 @@ export LC_ALL=en_GB.UTF-8
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
-export EDITOR=/usr/bin/nvim.appimage
-export VISUAL=/usr/bin/nvim.appimage
+export EDITOR=nvim
+export VISUAL=nvim
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="/usr/bin/nvim.appimage"
-alias nvim="/usr/bin/nvim.appimage"
 export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
@@ -130,3 +129,4 @@ export PATH="/home/a.belo/.turso:$PATH"
 autoload -U compinit; compinit
 
 eval $(thefuck --alias f)
+eval $(thefuck --alias)

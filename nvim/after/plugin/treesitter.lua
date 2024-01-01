@@ -1,7 +1,8 @@
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "vimdoc", "javascript", "typescript", "c", "lua", "python", "clojure", "markdown",
-    "markdown_inline" },
+  ensure_installed = { 
+    "vimdoc", "javascript", "typescript", "c", "lua", "python",
+    "clojure", "markdown", "markdown_inline" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -71,8 +72,3 @@ require 'nvim-treesitter.configs'.setup {
     -- termcolors = {} -- table of colour name strings
   }
 }
-
-
-vim.opt.conceallevel = 2
-vim.g.vim_json_syntax_concealcursor = 2
-vim.opt.concealcursor = "nc"

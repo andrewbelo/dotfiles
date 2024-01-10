@@ -1,8 +1,6 @@
-local is_wsl = vim.env.USER == "tj-wsl"
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- Don't show the dumb matching stuff.
+-- Don't show thedumb matching stuff.
 vim.opt.shortmess:append "c"
 
 -- Complextras.nvim configuration
@@ -39,7 +37,7 @@ cmp.setup {
     ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
     ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-u>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<c-y>"] = cmp.mapping(
       cmp.mapping.confirm {
@@ -56,7 +54,7 @@ cmp.setup {
       { "i", "c" }
     ),
 
-    ["<c-space>"] = cmp.mapping {
+    ["<C-Space>"] = cmp.mapping {
       i = cmp.mapping.complete(),
       c = function(
         _ --[[fallback]]
@@ -72,14 +70,7 @@ cmp.setup {
     },
 
     -- ["<tab>"] = false,
-    ["<tab>"] = cmp.config.disable,
-
-    -- ["<tab>"] = cmp.mapping {
-    --   i = cmp.config.disable,
-    --   c = function(fallback)
-    --     fallback()
-    --   end,
-    -- },
+    ["<Tab>"] = cmp.config.disable,
 
     -- Testing
     ["<c-q>"] = cmp.mapping.confirm {
@@ -128,7 +119,6 @@ cmp.setup {
     },
   },
 
-  -- Youtube: mention that you need a separate snippets plugin
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -154,11 +144,8 @@ cmp.setup {
   },
 
   experimental = {
-    -- I like the new menu better! Nice work hrsh7th
     native_menu = false,
-
-    -- Let's play with this for a day or two
-    ghost_text = false,
+    ghost_text = true,
   },
 }
 

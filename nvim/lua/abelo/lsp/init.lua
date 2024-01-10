@@ -265,98 +265,37 @@ for server, config in pairs(servers) do
   setup_server(server, config)
 end
 
---[ An example of using functions...
--- 0. nil -> do default (could be enabled or disabled)
--- 1. false -> disable it
--- 2. true -> enable, use defaults
--- 3. table -> enable, with (some) overrides
--- 4. function -> can return any of above
---
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, method, params, client_id, bufnr, config)
---   local uri = params.uri
---
---   vim.lsp.with(
---     vim.lsp.diagnostic.on_publish_diagnostics, {
---       underline = true,
---       virtual_text = true,
---       signs = sign_decider,
---       update_in_insert = false,
---     }
---   )(err, method, params, client_id, bufnr, config)
---
---   bufnr = bufnr or vim.uri_to_bufnr(uri)
---
---   if bufnr == vim.api.nvim_get_current_buf() then
---     vim.lsp.diagnostic.set_loclist { open_loclist = false }
---   end
--- end
---]]
-
 -- Only run stylua when we can find a root dir
 require("conform.formatters.stylua").require_cwd = true
 
 require("conform").setup {
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "isort", "ruff" },
+    python = { "isort", "ruff_fix", "black", "mypy" },
     typescript = { { "prettierd", "prettier" } },
     javascript = { { "prettierd", "prettier" } },
+    clojure = { "clojure_lsp" },
+    go = { "gofmt", "goimports" },
   },
 }
+
+vim.api.nvim_create_user_command("Format", function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ["end"] = { args.line2, end_line:len() },
+    }
+  end
+  require("conform").format({ async = true, lsp_fallback = true, range = range })
+end, { range = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
     require("conform").format { bufnr = args.buf, lsp_fallback = true }
   end,
-})
-
--- require("null-ls").setup {
---   sources = {
---     -- require("null-ls").builtins.formatting.stylua,
---     -- require("null-ls").builtins.diagnostics.eslint,
---     -- require("null-ls").builtins.completion.spell,
---     -- require("null-ls").builtins.diagnostics.selene,
---     require("null-ls").builtins.formatting.prettierd,
---     require("null-ls").builtins.formatting.isort,
---     require("null-ls").builtins.formatting.black,
---   },
--- }
-
-local null_ls = require("null-ls")
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint,
-
-        -- python
-        null_ls.builtins.diagnostics.mypy,
-        null_ls.builtins.diagnostics.ruff,
-        null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.black,
-
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.yamlfix,
-        null_ls.builtins.formatting.sqlfmt,
-
-        null_ls.builtins.diagnostics.markdownlint.with({
-            extra_filetypes = { "telekasten" },
-        }),
-        null_ls.builtins.formatting.markdownlint.with({
-            extra_filetypes = { "telekasten" },
-        }),
-        null_ls.builtins.formatting.prettier.with({
-            filetypes = { "html", "sql", "json", "yaml", "markdown", "telekasten" },
-        })
-        ,
-
-        null_ls.builtins.diagnostics.clj_kondo.with({
-            filetypes = { "clojure" },
-        }),
-        null_ls.builtins.formatting.cljstyle.with({
-            filetypes = { "clojure" },
-        }),
-    },
 })
 
 local has_metals = pcall(require, "metals")

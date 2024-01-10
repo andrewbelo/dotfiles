@@ -24,7 +24,4 @@ return {
         require("conjure.main").main()
         require("conjure.mapping")["on-filetype"]()
     end,
-    init = function()
-      vim.cmd [[ g:conjure#mapping#prefix = "\\" ]]
-    end,
 }

@@ -1,11 +1,5 @@
 require "abelo.globals"
 
--- if vim.g.neovide then
---   vim.g.neovide_cursor_trail_legnth = 0
---   vim.g.neovide_cursor_animation_length = 0
---   vim.o.guifont = "Jetbrains Mono"
--- end
-
 -- Leader key -> "\"
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
@@ -27,11 +21,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("custom.plugins", {
-  dev = {
-    -- directory where you store your local plugin projects
-    path = "~/plugins",
-    fallback = false,
-  },
+  dev = { path = "~/plugins", fallback = false, },
   ui = {
     icons = {
       cmd = "⌘",

@@ -102,7 +102,6 @@ alias day='gcalcli agenda --details conference $(date +%m-%d) $(date -d '+1 day'
 source ~/dotfiles/fzf/completion.zsh
 source ~/dotfiles/fzf/key-bindings.zsh
 bindkey -s ^k "tmux-sessionizer\n"
-bindkey -s ^p "ranger\n"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.config/picum/build/src:$PATH"
@@ -114,7 +113,8 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
 export PATH="${PATH}:~/.local/share/coursier/bin"
 export PATH="${PATH}:${HOME}/bin"
-
+export PATH="${PATH}:${HOME}/personal/Discord"
+export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0

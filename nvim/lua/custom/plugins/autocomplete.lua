@@ -1,6 +1,5 @@
 return {
   { 'tomtom/tcomment_vim' },
-  { 'jiangmiao/auto-pairs' },
   { 'L3MON4D3/LuaSnip' },
   { 'pedrohdz/vim-yaml-folds' },
 

@@ -1,24 +1,22 @@
 local HOME = os.getenv("HOME")
 
 vim.api.nvim_create_autocmd("BufNewFile", {
-    group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
-    pattern = { "conjure-log-*" },
-    callback = function() vim.diagnostic.disable(0) end,
-    desc = "Conjure Log disable LSP diagnostics",
+  group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+  pattern = { "conjure-log-*" },
+  callback = function() vim.diagnostic.disable(0) end,
+  desc = "Conjure Log disable LSP diagnostics",
 })
 vim.api.nvim_create_autocmd("BufWritePost", {
-    group = vim.api.nvim_create_augroup("conceallevel_2", { clear = true }),
-    pattern = { "*.md" },
-    callback = function() vim.opt.conceallevel = 2 end,
-    desc = "Set conceallevel=2 on markdown files after save",
+  group = vim.api.nvim_create_augroup("conceallevel_2", { clear = true }),
+  pattern = { "*.md" },
+  callback = function() vim.opt.conceallevel = 2 end,
+  desc = "Set conceallevel=2 on markdown files after save",
 })
-
---  the same in lua
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-    group = vim.api.nvim_create_augroup("setfiletype_dockerfile", { clear = true }),
-    pattern = { "*.dockerfile" },
-    callback = function() vim.bo.filetype = "dockerfile" end,
-    desc = "Set filetype=dockerfile on *.dockerfile files",
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("setfiletype_dockerfile", { clear = true }),
+  pattern = { "*.dockerfile" },
+  callback = function() vim.bo.filetype = "dockerfile" end,
+  desc = "Set filetype=dockerfile on *.dockerfile files",
 })
 
 
@@ -39,7 +37,7 @@ vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
-vim.opt.showtabline = 2
+vim.opt.showtabline = 0
 vim.opt.autowrite = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

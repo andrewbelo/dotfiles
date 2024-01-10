@@ -1,5 +1,3 @@
-local sorters = require "telescope.sorters"
-
 local map_tele = require "abelo.telescope.mappings"
 
 -- Dotfiles
@@ -30,6 +28,7 @@ map_tele("<leader>pp", "project_search")
 map_tele("<leader>fv", "find_nvim_source")
 map_tele("<leader>fe", "file_browser")
 map_tele("<leader>fz", "search_only_certain_files")
+map_tele("<leader>fm", "keymaps")
 
 -- Git
 map_tele("<leader>gs", "git_status")

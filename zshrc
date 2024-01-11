@@ -73,7 +73,7 @@ export LC_ALL=en_GB.UTF-8
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
-export EDITOR=nvim
+export EDITOR=nvim $f
 export VISUAL=nvim
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
@@ -115,10 +115,10 @@ export PATH="${PATH}:~/.local/share/coursier/bin"
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:${HOME}/personal/Discord"
 export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
+export PATH="${PATH}:${HOME}/dotfiles/i3-battery-popup"
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
-export JIRA_API_TOKEN='MTQxMTY5Mzc0MzMyOlZYynUsksq9DSY9I5gHKW/tLIsR'
 export JIRA_AUTH_TYPE='bearer'
 
 autoload -U compinit && compinit

@@ -48,6 +48,7 @@ vim.opt.textwidth = 120
 vim.opt.colorcolumn = "81"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.scrolloff = 10
 
 vim.opt.history = 200
 

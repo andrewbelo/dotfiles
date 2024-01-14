@@ -3,12 +3,13 @@
 
 # Path to your oh-my-zsh installation. 
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/dotfiles/zsh-custom"
 [ -z "$TMUX" ] && export TERM=xterm-256color
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="refined"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -30,7 +31,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -63,7 +64,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 ### "nvim" as manpager
 # export MANPAGER="nvim -c 'set ft=man' -"
 
-PROMPT='$(kube_ps1)'$PROMPT
 export PATH=$PATH:$HOME/bin
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH=/home/belo/.local/bin:$PATH
@@ -73,12 +73,12 @@ export LC_ALL=en_GB.UTF-8
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 # Editor aliases
-export EDITOR=/usr/bin/nvim.appimage
+export EDITOR=nvim $f
+export VISUAL=nvim
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="/usr/bin/nvim.appimage"
-alias nvim="/usr/bin/nvim.appimage"
 export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
@@ -87,6 +87,7 @@ alias py='/usr/bin/python3.11'
 alias pyso='source .venv/bin/activate'
 alias zshso='source ~/.zshrc'
 alias pip=pip3
+alias ktx=kubectx
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
@@ -101,7 +102,6 @@ alias day='gcalcli agenda --details conference $(date +%m-%d) $(date -d '+1 day'
 source ~/dotfiles/fzf/completion.zsh
 source ~/dotfiles/fzf/key-bindings.zsh
 bindkey -s ^k "tmux-sessionizer\n"
-bindkey -s ^p "ranger\n"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.config/picum/build/src:$PATH"
@@ -113,9 +113,9 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
 export PATH="${PATH}:~/.local/share/coursier/bin"
 export PATH="${PATH}:${HOME}/bin"
-
-export SPACESHIP_CONFIG="$HOME/dotfiles/spaceship.zsh"
-source $SPACESHIP_CONFIG
+export PATH="${PATH}:${HOME}/personal/Discord"
+export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
+export PATH="${PATH}:${HOME}/dotfiles/i3-battery-popup"
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
@@ -126,19 +126,7 @@ autoload -U compinit && compinit
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/a.belo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/a.belo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/a.belo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/a.belo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 autoload -U compinit; compinit
+
+eval $(thefuck --alias f)
+eval $(thefuck --alias)

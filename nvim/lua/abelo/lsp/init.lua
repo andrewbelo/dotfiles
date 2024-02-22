@@ -10,6 +10,16 @@ if neodev then
   }
 end
 
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.staticcheck
+  },
+})
+
 local lspconfig = vim.F.npcall(require, "lspconfig")
 if not lspconfig then
   return
@@ -154,11 +164,13 @@ local servers = {
       },
     },
   },
+  ruff_lsp = true,
 
   gdscript = true,
   -- graphql = true,
   html = true,
   jedi_language_server = true,
+  kotlin_language_server = true,
   vimls = true,
   yamlls = true,
 
@@ -274,8 +286,11 @@ require("conform").setup {
     python = { "isort", "ruff_fix", "black", "mypy" },
     typescript = { { "prettierd", "prettier" } },
     javascript = { { "prettierd", "prettier" } },
+    yaml = { { "prettierd", "prettier" } },
+    html = { { "prettierd", "prettier" } },
+    json = { { "prettierd", "prettier" } },
     clojure = { "clojure_lsp" },
-    go = { "gofmt", "goimports" },
+    go = { "gofmt", "goimports", "staticcheck" },
   },
 }
 

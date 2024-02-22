@@ -25,7 +25,11 @@ return {
       nmap("<leader>tl", function() require("trouble").toggle("loclist") end)
     end
   },
-  "nvimtools/none-ls.nvim",
+  {
+    "nvimtools/none-ls.nvim",
+    config = function()
+    end
+  },
   -- Formatting plugin
   "stevearc/conform.nvim",
   {

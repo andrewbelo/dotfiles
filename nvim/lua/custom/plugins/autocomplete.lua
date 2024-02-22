@@ -13,4 +13,5 @@ return {
   { "tamago324/cmp-zsh" },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-cmdline' },
+  { 'PaterJason/cmp-conjure', }
 }

@@ -18,6 +18,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function() vim.bo.filetype = "dockerfile" end,
   desc = "Set filetype=dockerfile on *.dockerfile files",
 })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("setfiletype_http", { clear = true }),
+  pattern = { "*.http" },
+  callback = function() vim.bo.filetype = "http" end,
+  desc = "Set filetype=http on *.http files",
+})
 
 
 
@@ -31,9 +37,11 @@ vim.opt.concealcursor = "nc"
 vim.opt.undofile = true
 vim.opt.undodir = HOME .. "/.vim/undo"
 vim.opt.compatible = false
+
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.number = true
+
 vim.opt.ruler = true
 vim.opt.showcmd = true
 vim.opt.laststatus = 2

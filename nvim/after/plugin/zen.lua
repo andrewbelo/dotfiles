@@ -9,6 +9,7 @@ vim.keymap.set("n", "<leader>zz", function()
     vim.wo.wrap = true
     vim.wo.number = true
     vim.wo.rnu = true
+    vim.opt.ruler = true
 end)
 
 

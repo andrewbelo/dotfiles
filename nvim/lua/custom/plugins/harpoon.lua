@@ -3,7 +3,7 @@ return {
     "ThePrimeagen/harpoon",
     lazy = false,
     branch = "harpoon2",
-    dependencies = { {"nvim-lua/plenary.nvim"} },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
       local harpoon = require("harpoon")
       local nmap = require("abelo.keymap").nmap
@@ -13,7 +13,7 @@ return {
       -- REQUIRED
 
       nmap("<leader>a", function() harpoon:list():append() end)
-      nmap("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      nmap("<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
       for i = 1, 5 do
         nmap(string.format("<space>%s", i), function() harpoon:list():select(i) end)

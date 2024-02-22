@@ -40,12 +40,9 @@ HYPHEN_INSENSITIVE="true"
 
 
 plugins=(
-    git colorize ubuntu vi-mode
-    pdm python pip lets kubectl kubectx
-    docker docker-compose
-    helm fzf spaceship-vi-mode
+    git colorize ubuntu vi-mode pdm python pip kubectl kubectx
+    docker docker-compose helm fzf
 )
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -78,7 +75,7 @@ export VISUAL=nvim
 # Shortcuts to config files
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="/usr/bin/nvim.appimage"
+alias vi=nvim
 export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
@@ -94,7 +91,7 @@ alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
 alias gs='git status'
 alias jme='jira issue list \
-    -q "Sprint in openSprints() AND Sprint not in futureSprints() AND resolution = Unresolved AND assignee in (currentUser())" \
+    -q "Sprint in openSprints()  AND resolution = Unresolved AND assignee in (currentUser())" \
     --order-by updated --columns key,summary,status,reporter'
 
 alias day='gcalcli agenda --details conference $(date +%m-%d) $(date -d '+1 day' +%m-%d)'
@@ -116,17 +113,30 @@ export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:${HOME}/personal/Discord"
 export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/i3-battery-popup"
+export PATH="${PATH}:${HOME}/bin/XpdfReader-linux64-4.04/"
+fpath=(~/.my-completions $fpath)
+
 
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
-export JIRA_AUTH_TYPE='bearer'
-
-autoload -U compinit && compinit
+export JIRA_API_TOKEN='ATATT3xFfGF0sctjf_Z-J2tpLrdq40tFgn9u5TE0rTAhJaAJbvLm6ibPt6u5YsUrZVFq36S9DKz0uRSK2bUNdfOmRqJq-o5u-xp25OPHs81dF3kvALbjP8ElE0S96fBAvkCTOzMkVuCafRvHD3esuZghaCmmlmnx-3VJsK67UH1U2YLX2iRKCj0=AB6DB627'
 
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
+
+# LETS
+source <(lets completion -s zsh)
 
 autoload -U compinit; compinit
 
 eval $(thefuck --alias f)
 eval $(thefuck --alias)
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/path.zsh.inc' ]; then . '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc'; fi

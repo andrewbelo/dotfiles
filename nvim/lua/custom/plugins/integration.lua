@@ -1,6 +1,12 @@
 return {
   { 'tyru/open-browser.vim' },
-  { 'yoshio15/vim-trello' },
+  { 
+    'yoshio15/vim-trello',
+    config = function()
+      vim.g.vimTrelloApiKey = '2e6d70000df76cf735738a5dbe38c930'
+      vim.g.vimTrelloToken = 'da68f2d2b840b6825084c372e61e788076266ad9ffbac95bb3066b277018af74'
+    end,
+  },
   {
     "harrisoncramer/gitlab.nvim",
     dependencies = {

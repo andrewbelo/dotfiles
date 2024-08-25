@@ -2,7 +2,7 @@ return {
   { 'tomtom/tcomment_vim' },
   { 'L3MON4D3/LuaSnip' },
   { 'pedrohdz/vim-yaml-folds' },
-
+  { 'f3fora/cmp-spell'},
   { "saadparwaiz1/cmp_luasnip", dependencies = { "L3MON4D3/LuaSnip" } },
 
   { 'hrsh7th/nvim-cmp' },

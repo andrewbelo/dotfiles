@@ -48,7 +48,7 @@ return {
       vim.g.copilot_node_command = "~/.nvm/versions/node/v20.10.0/bin/node"
 
       vim.cmd [[
-          let g:copilot_filetypes = { "markdown": v:true, }
+          let g:copilot_enabled = v:false
         ]]
     end,
   }

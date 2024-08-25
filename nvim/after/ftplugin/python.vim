@@ -4,6 +4,7 @@ setlocal expandtab
 setlocal smarttab
 setlocal shiftwidth=4
 setlocal tabstop=4
+setlocal scrolloff=10
 
 " {{{ Mappings
 " CTRL K moves to the function definition above

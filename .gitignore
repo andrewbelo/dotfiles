@@ -6,6 +6,5 @@ cecho
 conky-*
 nvim/vim-sexp
 rofi-*
-tmux-*
 i3blocks-contrib
 zsh-*

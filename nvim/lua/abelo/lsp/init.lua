@@ -282,15 +282,14 @@ require("conform.formatters.stylua").require_cwd = true
 
 require("conform").setup {
   formatters_by_ft = {
-    lua = { "stylua" },
-    python = { "isort", "ruff_fix", "black", "mypy" },
-    typescript = { { "prettierd", "prettier" } },
-    javascript = { { "prettierd", "prettier" } },
+    python = { "ruff_fix", },
+    typescript = { { "prettier" } },
+    javascript = { { "prettier" } },
     yaml = { { "prettierd", "prettier" } },
     html = { { "prettierd", "prettier" } },
     json = { { "prettierd", "prettier" } },
-    clojure = { "clojure_lsp" },
-    go = { "gofmt", "goimports", "staticcheck" },
+    clojure = { "cljstyle" },
+    go = { "gofmt", "goimports", },
   },
 }
 
@@ -309,7 +308,7 @@ end, { range = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
-    require("conform").format { bufnr = args.buf, lsp_fallback = true }
+    require("conform").format { bufnr = args.buf, lsp_fallback = false }
   end,
 })
 
@@ -330,7 +329,7 @@ if has_metals and false then
     -- NOTE: You may or may not want java included here. You will need it if you
     -- want basic Java support but it may also conflict if you are using
     -- something like nvim-jdtls which also works on a java filetype autocmd.
-    pattern = { "scala", "sbt", "java" },
+    pattern = { "scala", "sbt", "java", "kotlin" },
     callback = function()
       require("metals").initialize_or_attach(metals_config)
     end,

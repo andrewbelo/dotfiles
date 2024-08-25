@@ -24,8 +24,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function() vim.bo.filetype = "http" end,
   desc = "Set filetype=http on *.http files",
 })
-
-
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("setfiletype_http", { clear = true }),
+  pattern = { "*.pbtxt" },
+  callback = function() vim.bo.filetype = "pbtxt" end,
+  desc = "Set filetype=pbtxt on *.pbtxt files",
+})
 
 vim.g.ranger_map_keys = 0
 vim.g.NERDTreeHijackNetrw = 0

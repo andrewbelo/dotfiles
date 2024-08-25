@@ -19,7 +19,7 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -ds $selected_name -c $selected
     tmux new-window -d -t $selected_name:3 -c $selected -n k8s
     tmux new-window -d -t $selected_name:4 -c $selected -n misc
-    tmux new-window -d -t $selected_name:2 -c $selected -n editor nvim
+    tmux new-window -d -t $selected_name:2 -c $selected -n editor
     tmux attach -t $selected_name:2
     exit 0
 fi
@@ -29,7 +29,7 @@ if ! have_session; then
     tmux new-session -ds $selected_name -c $selected -n zsh
     tmux new-window -d -t $selected_name:3 -c $selected -n k8s
     tmux new-window -d -t $selected_name:4 -c $selected -n misc
-    tmux new-window -t $selected_name:2 -c $selected -n editor nvim
+    tmux new-window -t $selected_name:2 -c $selected -n editor
 fi
 
 if [[ -z $TMUX ]] ; then

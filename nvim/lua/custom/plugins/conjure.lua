@@ -1,6 +1,6 @@
 return {
   "Olical/conjure",
-  ft = { "clojure", "fennel", "python" },   -- etc
+  ft = { "clojure", "fennel", "python" }, -- etc
   -- [Optional] cmp-conjure for cmp
   dependencies = {
     {
@@ -23,6 +23,9 @@ return {
   config = function(_, opts)
     require("conjure.main").main()
     require("conjure.mapping")["on-filetype"]()
-    vim.g["conjure#mapping#doc_word"] = "gk"
+  end,
+  init = function()
+    -- Set configuration options here
+    vim.g["conjure#mapping#doc_word"] = "<leader>K"
   end,
 }

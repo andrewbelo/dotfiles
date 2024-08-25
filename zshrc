@@ -85,8 +85,12 @@ alias pyso='source .venv/bin/activate'
 alias zshso='source ~/.zshrc'
 alias pip=pip3
 alias ktx=kubectx
+alias stg="kubectx a.belo@staging"
+alias prd="kubectx a.belo@prod"
+alias ams="kubectx a.belo@ams"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
+alias back='cd $(git rev-parse --show-toplevel)'
 alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
 alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
 alias gs='git status'
@@ -117,6 +121,7 @@ export PATH="${PATH}:${HOME}/bin/XpdfReader-linux64-4.04/"
 fpath=(~/.my-completions $fpath)
 
 
+export SHAPE="200,200,200"
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
 export JIRA_API_TOKEN='ATATT3xFfGF0sctjf_Z-J2tpLrdq40tFgn9u5TE0rTAhJaAJbvLm6ibPt6u5YsUrZVFq36S9DKz0uRSK2bUNdfOmRqJq-o5u-xp25OPHs81dF3kvALbjP8ElE0S96fBAvkCTOzMkVuCafRvHD3esuZghaCmmlmnx-3VJsK67UH1U2YLX2iRKCj0=AB6DB627'
@@ -140,3 +145,20 @@ if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/path.zsh.inc' ];
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc'; fi
+source "$HOME/.rye/env"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/a.belo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/a.belo/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/a.belo/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/a.belo/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

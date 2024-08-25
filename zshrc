@@ -9,7 +9,7 @@ export ZSH_CUSTOM="$HOME/dotfiles/zsh-custom"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="refined"
+ZSH_THEME="lucklaster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -51,15 +51,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-### Set manpager
-### "bat" as manpager
+### Set manpager "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-### "vim" as manpager
-# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-
-### "nvim" as manpager
-# export MANPAGER="nvim -c 'set ft=man' -"
 
 export PATH=$PATH:$HOME/bin
 export MANPATH="/usr/local/man:$MANPATH"
@@ -80,7 +73,7 @@ export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
 # Python Shortcuts & virtualenvwrapper config
-alias py='/usr/bin/python3.11'
+alias py=python
 alias pyso='source .venv/bin/activate'
 alias zshso='source ~/.zshrc'
 alias pip=pip3
@@ -88,6 +81,9 @@ alias ktx=kubectx
 alias stg="kubectx a.belo@staging"
 alias prd="kubectx a.belo@prod"
 alias ams="kubectx a.belo@ams"
+kubectx_mapping[a.belo@staging]="${COLOR_GREEN}STG"
+kubectx_mapping[a.belo@prod]="${COLOR_RED}PRD"
+kubectx_mapping[a.belo@ams]="${COLOR_LUSTER}AMS"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias back='cd $(git rev-parse --show-toplevel)'
@@ -124,7 +120,6 @@ fpath=(~/.my-completions $fpath)
 export SHAPE="200,200,200"
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
-export JIRA_API_TOKEN='ATATT3xFfGF0sctjf_Z-J2tpLrdq40tFgn9u5TE0rTAhJaAJbvLm6ibPt6u5YsUrZVFq36S9DKz0uRSK2bUNdfOmRqJq-o5u-xp25OPHs81dF3kvALbjP8ElE0S96fBAvkCTOzMkVuCafRvHD3esuZghaCmmlmnx-3VJsK67UH1U2YLX2iRKCj0=AB6DB627'
 
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
@@ -161,4 +156,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

@@ -8,3 +8,4 @@ nvim/vim-sexp
 rofi-*
 i3blocks-contrib
 zsh-*
+.secrets

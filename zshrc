@@ -106,6 +106,7 @@ export PATH="$HOME/work/datagrip/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:${HOME}/go/bin
 export PATH=$PATH:/home/a.belo/.cargo/bin
+export PATH=$PATH:${HOME}/.cargo/bin
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
 export PATH="${PATH}:~/.local/share/coursier/bin"
@@ -120,7 +121,7 @@ fpath=(~/.my-completions $fpath)
 export SHAPE="200,200,200"
 export MILVUSDM_PATH='/home/a.belo/milvusdm'
 export LOGS_NUM=0
-
+export XDG_CONFIG_HOME='/home/a.belo/.config/'
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
 

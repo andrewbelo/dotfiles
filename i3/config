@@ -10,7 +10,7 @@ bindsym F7 exec xrandrmenu
 bindsym Control+F7 exec i3layoutmenu
 bindsym F10 exec scrotmenu
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 ## INCLUDES ####################################################################
 
 include ~/.config/i3/workspaces.conf

@@ -1,10 +1,18 @@
 [font]
-
-normal = {family="JetBrains Mono", stype= "Regular"}
-bold = {family = "JetBrains Mono", style = "Bold" }
-italic = {family = "JetBrains Mono", style = "Italic"  }
-bold_italic = { family = "JetBrains Mono", style = "Bold Italic"  }
 size = 14.0
+[font.normal]
+family="FiraMonoNerdFont" 
+stype= "Regular"
+
+[font.bold]
+family = "FiraMonoNerdFont"
+style = "Bold"
+[font.italic]
+family = "FiraMonoNerdFont"
+style = "Italic"  
+[font.bold_italic]
+family = "FiraMonoNerdFont"
+style = "Bold Italic"
 
 [colors.primary]
 background = '#0A0A0A'

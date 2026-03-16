@@ -9,6 +9,7 @@ return {
     vim.keymap.set("n", "<Leader>rp", function() k.jump_prev() end)
     vim.keymap.set("n", "<Leader>rn", function() k.jump_next() end)
     vim.keymap.set("n", "<Leader>ri", function() k.inspect() end)
+    vim.keymap.set("n", "<Leader>re", function() k.set_selected_env() end)
     k.setup()
   end,
 }

@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 0 ]]; then 
-    selected=$(find ~/ ~/work/dev ~/personal ~/personal/go ~/personal/STAS/ ~/personal/clojure /media/a.belo/And\ VOL/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$({
+    find ~/work/dev ~/personal -mindepth 1 -maxdepth 2 -type d;
+    find ~/ ~/personal/clojure -mindepth 1 -maxdepth 1 -type d;
+  } | sort -u | fzf)
 elif [[ $# -eq 1 ]]; then
     selected=$1
 else

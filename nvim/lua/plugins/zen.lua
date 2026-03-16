@@ -1,4 +1,6 @@
-return { { 'folke/zen-mode.nvim',
+return {
+  {
+    'folke/zen-mode.nvim',
     config = function()
       vim.keymap.set("n", "<leader>zz", function()
         require("zen-mode").setup {
@@ -32,9 +34,76 @@ return { { 'folke/zen-mode.nvim',
       end)
     end,
   },
-  { 'renerocksai/calendar-vim' },
-  { 'renerocksai/telekasten.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'renerocksai/calendar-vim',
+      {
+        'jakewvincent/mkdnflow.nvim',
+        config = function()
+          require('mkdnflow').setup({
+            perspective = {
+              priority = 'root',
+              root_tell = '.git',
+            },
+            links = {
+              style = 'wiki',
+              name_is_source = true,
+              conceal = true,
+              context = 0,
+              implicit_extension = nil,
+              transform_implicit = false,
+              create_on_follow_failure = true
+            },
+            to_do = {
+              symbols = { ' ', '~', 'X' },
+              update_parents = true,
+              not_started = ' ',
+              in_progress = '~',
+              complete = 'X'
+            },
+            mappings = {
+              MkdnEnter = { { 'n', 'v' }, '<CR>' },
+              MkdnTab = false,
+              MkdnSTab = false,
+              MkdnNextLink = false,
+              MkdnPrevLink = false,
+              MkdnNextHeading = { 'n', ']]' },
+              MkdnPrevHeading = { 'n', '[[' },
+              MkdnGoBack = { 'n', '<BS>' },
+              MkdnGoForward = { 'n', '<Del>' },
+              MkdnCreateLink = false,                                      -- see MkdnEnter
+              MkdnCreateLinkFromClipboard = { { 'n', 'v' }, '<leader>P' }, -- see MkdnEnter
+              MkdnFollowLink = false,                                      -- see MkdnEnter
+              MkdnDestroyLink = { 'n', '<M-CR>' },
+              MkdnTagSpan = { 'v', '<M-CR>' },
+              MkdnMoveSource = { 'n', '<F2>' },
+              MkdnYankAnchorLink = { 'n', 'yaa' },
+              MkdnYankFileAnchorLink = { 'n', 'yfa' },
+              MkdnIncreaseHeading = { 'n', '+' },
+              MkdnDecreaseHeading = { 'n', '=' },
+              MkdnToggleToDo = { { 'n', 'v' }, '<C-Space>' },
+              MkdnNewListItem = false,
+              MkdnNewListItemBelowInsert = { 'n', 'o' },
+              MkdnNewListItemAboveInsert = { 'n', 'O' },
+              MkdnExtendList = false,
+              MkdnUpdateNumbering = { 'n', '<leader>nn' },
+              MkdnTableNextCell = { 'i', '<C-n>' },
+              MkdnTablePrevCell = { 'i', '<C-p>' },
+              MkdnTableNextRow = false,
+              MkdnTablePrevRow = { 'i', '<M-CR>' },
+              MkdnTableNewRowBelow = { 'n', '<leader>ir' },
+              MkdnTableNewRowAbove = { 'n', '<leader>iR' },
+              MkdnTableNewColAfter = { 'n', '<leader>ic' },
+              MkdnTableNewColBefore = { 'n', '<leader>iC' },
+              MkdnFoldSection = { 'n', '<leader>f' },
+              MkdnUnfoldSection = { 'n', '<leader>F' }
+            }
+          })
+        end,
+      }
+    },
     config = function()
       local home = vim.fn.expand("~/personal/zettelkasten")
       require('telekasten').setup({
@@ -44,12 +113,12 @@ return { { 'folke/zen-mode.nvim',
         dailies                     = home .. '/regular/' .. 'daily',
         weeklies                    = home .. '/regular/' .. 'weekly',
         templates                   = home .. '/regular/' .. 'templates',
+        template_new_daily          = home .. '/regular/templates/daily.md',
+        template_new_weekly         = home .. '/regular/templates/weekly.md',
         image_subdir                = "img",
         follow_creates_nonexisting  = true,
         dailies_create_nonexisting  = true,
         weeklies_create_nonexisting = true,
-        template_new_daily          = home .. '/' .. 'templates/daily.md',
-        template_new_weekly         = home .. '/' .. 'templates/weekly.md',
         image_link_style            = "markdown",
         plug_into_calendar          = true,
         calendar_opts               = {

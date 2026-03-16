@@ -55,7 +55,15 @@ return {
           { name = "buffer" },
         },
       })
-
+      cmp.setup.filetype({ "md" }, {
+        sources = cmp.config.sources({
+          -- Other cmp sources
+          { name = 'mkdnflow' }, -- Add this
+          { name = "path" },
+          { name = "buffer" },
+          -- Other cmp sources
+        }),
+      })
       -- Setup up vim-dadbod
       cmp.setup.filetype({ "sql" }, {
         sources = {

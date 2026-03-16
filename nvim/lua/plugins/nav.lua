@@ -40,17 +40,13 @@ return {
       set("n", "<leader>ft", builtin.git_files)
       set("n", "<leader>fh", builtin.help_tags)
       set("n", "<leader>fb", builtin.buffers)
-      set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+      set("n", "<leader>ff", builtin.current_buffer_fuzzy_find)
 
       set("n", "<leader>gw", builtin.grep_string)
 
       set("n", "<leader>fa", function()
         ---@diagnostic disable-next-line: param-type-mismatch
         builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
-      end)
-
-      set("n", "<leader>fp", function()
-        builtin.find_files { cwd = "~/plugins/" }
       end)
     end,
   },
@@ -62,10 +58,10 @@ return {
       local set = vim.keymap.set
       harpoon:setup()
 
-      set("n", "<m-h><m-m>", function() harpoon:list():append() end)
+      set("n", "<m-h><m-m>", function() harpoon:list():add() end)
       set("n", "<m-h><m-l>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-      set("n", "<leader>-", function() harpoon:list():prev() end)
-      set("n", "<leader>=", function() harpoon:list():next() end)
+      set("n", "<leader>-", function() harpoon:list():prev({ ui_nav_wrap = true }) end)
+      set("n", "<leader>=", function() harpoon:list():next({ ui_nav_wrap = true }) end)
 
       -- Set <space>1..<space>5 be my shortcuts to moving to the files
       for _, idx in ipairs { 1, 2, 3, 4, 5 } do

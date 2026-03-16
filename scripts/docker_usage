@@ -1,0 +1,4 @@
+#!/bin/bash
+# Get the disk usage of /var/lib/docker
+usage=$(sudo du -sh /var/lib/docker | cut -f1)
+echo "Docker: $usage"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Replace 'your_module_name' with the actual name of your module
+MODULE_NAME="your_module_name"
+
+# Get the current state of the module
+STATE=$(polybar-msg cmd get | grep "$MODULE_NAME")
+
+if [[ $STATE == *"hidden"* ]]; then
+    polybar-msg cmd show $MODULE_NAME
+else
+    polybar-msg cmd hide $MODULE_NAME
+fi

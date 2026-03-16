@@ -22,27 +22,28 @@ return {
         local dashboard = require("dashboard")
         local conf = {}
         conf.header = {
-          "                                                                                    ",
-          " WWWWWWWW                           WWWWWWWWBBBBBBBBBBBBBBBBB      SSSSSSSSSSSSSSS  ",
-          " W::::::W                           W::::::WB::::::::::::::::B   SS:::::::::::::::S ",
-          " W::::::W                           W::::::WB::::::BBBBBB:::::B S:::::SSSSSS::::::S ",
-          " W::::::W                           W::::::WBB:::::B     B:::::BS:::::S     SSSSSSS ",
-          "  W:::::W           WWWWW           W:::::W   B::::B     B:::::BS:::::S             ",
-          "   W:::::W         W:::::W         W:::::W    B::::B     B:::::BS:::::S             ",
-          "    W:::::W       W:::::::W       W:::::W     B::::BBBBBB:::::B  S::::SSSS          ",
-          "     W:::::W     W:::::::::W     W:::::W      B:::::::::::::BB    SS::::::SSSSS     ",
-          "      W:::::W   W:::::W:::::W   W:::::W       B::::BBBBBB:::::B     SSS::::::::SS   ",
-          "       W:::::W W:::::W W:::::W W:::::W        B::::B     B:::::B       SSSSSS::::S  ",
-          "        W:::::W:::::W   W:::::W:::::W         B::::B     B:::::B            S:::::S ",
-          "         W:::::::::W     W:::::::::W          B::::B     B:::::B            S:::::S ",
-          "          W:::::::W       W:::::::W         BB:::::BBBBBB::::::BSSSSSSS     S:::::S ",
-          "           W:::::W         W:::::W          B:::::::::::::::::B S::::::SSSSSS:::::S ",
-          "            W:::W           W:::W           B::::::::::::::::B  S:::::::::::::::SS  ",
-          "             WWW             WWW            BBBBBBBBBBBBBBBBB    SSSSSSSSSSSSSSS    ",
-          "                                                                                    ",
-          "                                                                                    ",
-          "                                                                                    ",
-          "                                                                                    ",
+          "    __                                                                                      ",
+          "   /_/l                                                                                     ",
+          "  : : :                                                                                     ",
+          "   ; ; ;                                                                                    ",
+          "   : : :                                                                                    ",
+          "    L ; ;  __.-._.-+.                                                                       ",
+          "   /.\"^.:.L.' .^-.  \\`.                                                                     ",
+          "  :`.`. \\\"/\\ /.-. `. \\ \\                                                                    ",
+          "  ;\\ \\ ` ;-.y(_.-\\  \\ `.`.                                                                  ",
+          "  :   _. ;;  `    \\  \\. `-\\                                                                 ",
+          "   \\ T :: :=,   ,=^\\  \"-._;          __..------.._                                         ",
+          "   /;:-'; ; `._L.--^.     .-\"\"-.`.     \\ \\         \"\"--..                                   ",
+          "  : :_.': :           ;/     \\   /      \\ \\   ;          \"\"--._                             ",
+          "  ;  T   \\ \\  s      /:.---.  ;_/    `-._; ;  :     ______    \\\"-.      ___                 ",
+          " :   :\\   \\ `.-=^\" .:-\"    _\\   \\_.      : :  _:.--\".-\"  .T\"---:-.\"\"--\"\"\\  \"\"-.             ",
+          " ;    \\\\   \"-.\\__.:'      /-'. ; ;    _. ; ;  /   -'    '    .- \\        ;     \"-._.-\"\"\"\"\"-,",
+          " :     ;\\     `..'      .'    \\: ;      / / .'               )   ;  __  /         T        :",
+          " ;      `,        \\  .-\"       ;/\"---\" /.' /                 `- /\"\"\"  \"\"---\"\"\"\"----..___..-'",
+          "  :    .-\" `.      .'.-\\      / \"\"----\"\"\"\"^-.._              .-\"  bugs Xterminator           ",
+          "   \\_.'      \"._.-\"-..-'`-..-'                 \"\"--..__..--\"\"              Lara C            ",
+          "                                                                                                           ",
+          "                                                                                                           "
         }
 
         conf.center = {
@@ -159,12 +160,12 @@ return {
         command = {
           a = { bg = colors.gray2, fg = colors.luster, gui = 'bold' },
           b = { bg = colors.gray5, fg = colors.gray8 },
-          c = { bg = colors.luster, fg = colors.lack },
+          c = { bg = colors.gray4, fg = colors.gray6 },
         },
         inactive = {
           a = { bg = colors.black, fg = colors.gray7, gui = 'bold' },
           b = { bg = colors.gray5, fg = colors.gray8 },
-          c = { bg = colors.luster, fg = colors.lack },
+          c = { bg = colors.gray4, fg = colors.gray6 },
         }
       }
       require('lualine').setup({

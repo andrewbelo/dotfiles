@@ -10,12 +10,12 @@ vim.cmd [[
 opt.clipboard = "unnamed,unnamedplus" -- Copy into system (*, +) registers.
 
 opt.scrolloff = 10
+vim.opt.swapfile = false
 
 opt.compatible = false
 
 opt.number = true
 opt.relativenumber = true
-
 opt.ruler = true
 opt.showcmd = true
 opt.laststatus = 2

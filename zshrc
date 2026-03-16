@@ -1,5 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# zmodload zsh/datetime
+# setopt PROMPT_SUBST
+# PS4='+$EPOCHREALTIME %N:%i> '
+#
+# logfile=$(mktemp zsh_profile.XXXXXXXX)
+# echo "Logging to $logfile"
+# exec 3>&2 2>$logfile
+#
+# setopt XTRACE # If you come from bash you might have to change your $PATH.
+# # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation. 
 export ZSH="$HOME/.oh-my-zsh"
@@ -40,10 +48,16 @@ HYPHEN_INSENSITIVE="true"
 
 
 plugins=(
-    git colorize ubuntu vi-mode pdm python pip kubectl kubectx
+    git colorize ubuntu vi-mode python kubectl kubectx
     docker docker-compose helm fzf
 )
 source $ZSH/oh-my-zsh.sh
+
+if [ -f "$HOME/dotfiles/.secrets.sh" ] && [ -r "$HOME/dotfiles/.secrets.sh" ]; then
+    source "$HOME/dotfiles/.secrets.sh"
+else
+    echo "Warning: ~/.secrets.sh not found or not readable. Secrets not loaded." >&2
+fi
 
 # User configuration
 export NVM_DIR="$HOME/.nvm"
@@ -69,6 +83,8 @@ export VISUAL=nvim
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
+# alias lynx='lynx -vikeys -cookies -accept_all_cookies -cookie_file=~/dotfiles/cookies.txt'
+alias \?=duck
 export VIMCOFIG=~/.config/nvim
 export VIMDATA=~/.local/share/nvim
 export MYVIMRC=$VIMCOFIG/init.lua
@@ -79,6 +95,7 @@ alias zshso='source ~/.zshrc'
 alias pip=pip3
 alias ktx=kubectx
 alias stg="kubectx a.belo@staging"
+alias stg2="kubectx a.belo@olympus-new"
 alias prd="kubectx a.belo@prod"
 alias ams="kubectx a.belo@ams"
 kubectx_mapping[a.belo@staging]="${COLOR_GREEN}STG"
@@ -87,25 +104,35 @@ kubectx_mapping[a.belo@ams]="${COLOR_LUSTER}AMS"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 alias back='cd $(git rev-parse --show-toplevel)'
-alias glb='git log --graph --simplify-by-decoration --pretty=format:'%d' --all'
-alias gl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
-alias gs='git status'
 alias jme='jira issue list \
     -q "Sprint in openSprints()  AND resolution = Unresolved AND assignee in (currentUser())" \
+    --order-by status --reverse --columns key,summary,status,reporter'
+alias jopen='jira issue list \
+    -q "status not in ("Closed", "Done", "Resolved", \"On hold\", "Backlog") \
+    AND assignee in (currentUser())" \
+    --order-by updated --columns key,summary,status,reporter'
+alias jhold='jira issue list \
+    -q "status in ( \"On hold\", "Backlog") AND assignee in (currentUser())" \
+    --order-by updated --columns key,summary,status,reporter'
+alias jwait='jira issue list \
+    -q "status in ( \"In test\", "Requirements") AND assignee in (currentUser())" \
     --order-by updated --columns key,summary,status,reporter'
 
 alias day='gcalcli agenda --details conference $(date +%m-%d) $(date -d '+1 day' +%m-%d)'
+alias l='ls -lah --group-directories-first'
 
 source ~/dotfiles/fzf/completion.zsh
 source ~/dotfiles/fzf/key-bindings.zsh
 bindkey -s ^k "tmux-sessionizer\n"
 
+export FLYCTL_INSTALL="/home/a.belo/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.config/picum/build/src:$PATH"
 export PATH="$HOME/work/datagrip/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:${HOME}/go/bin
-export PATH=$PATH:/home/a.belo/.cargo/bin
+export PATH=$PATH:/home/a.belo/.cargo/bin:$HOME/.cargo/env
 export PATH=$PATH:${HOME}/.cargo/bin
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
@@ -115,12 +142,9 @@ export PATH="${PATH}:${HOME}/personal/Discord"
 export PATH="${PATH}:/home/linuxbrew/.linuxbrew/bin"
 export PATH="${PATH}:${HOME}/dotfiles/i3-battery-popup"
 export PATH="${PATH}:${HOME}/bin/XpdfReader-linux64-4.04/"
-fpath=(~/.my-completions $fpath)
+export PATH="${PATH}:${HOME}/work/zen/zen"
+export PATH="$HOME/.cargo/bin:$PATH"
 
-
-export SHAPE="200,200,200"
-export MILVUSDM_PATH='/home/a.belo/milvusdm'
-export LOGS_NUM=0
 export XDG_CONFIG_HOME='/home/a.belo/.config/'
 # Turso
 export PATH="/home/a.belo/.turso:$PATH"
@@ -130,30 +154,16 @@ source <(lets completion -s zsh)
 
 autoload -U compinit; compinit
 
-eval $(thefuck --alias f)
-eval $(thefuck --alias)
+fpath=(~/.my-completions $fpath)
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/path.zsh.inc' ]; then . '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/a.belo/personal/bootdotdev-cicd/google-cloud-sdk/completion.zsh.inc'; fi
-source "$HOME/.rye/env"
+. "$HOME/.cargo/env"
+eval "$(uv generate-shell-completion zsh)"
+# unsetopt XTRACE
+# exec 2>&3 3>&-
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/a.belo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/a.belo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/a.belo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/a.belo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# opencode
+export PATH=/home/a.belo/.opencode/bin:$PATH

@@ -1,0 +1,11 @@
+.github.com	TRUE	/	TRUE	1751884264	logged_in	yes
+.github.com	TRUE	/	TRUE	1751884264	dotcom_user	andrewbelo
+.github.com	TRUE	/	TRUE	1760432601	_octo	GH1.1.529308414.1728896601
+.github.com	TRUE	/	TRUE	0	color_mode	%7B%22color_mode%22%3A%22dark%22%2C%22light_theme%22%3A%7B%22name%22%3A%22light%22%2C%22color_mode%22%3A%22light%22%7D%2C%22dark_theme%22%3A%7B%22name%22%3A%22dark%22%2C%22color_mode%22%3A%22dark%22%7D%7D
+.github.com	TRUE	/	TRUE	0	cpu_bucket	lg
+.github.com	TRUE	/	TRUE	0	preferred_color_mode	dark
+.github.com	TRUE	/	TRUE	0	tz	Europe%2FKyiv
+github.com	FALSE	/	TRUE	1763655085	_device_id	50499abcd8237c75d67aa3170862ac47
+github.com	FALSE	/	TRUE	1733328685	user_session	w2wMXs8BYZuOR3piNghrs7s0E5zQmnWizeOb8PkqDVhQ7JxH
+github.com	FALSE	/	TRUE	1733328685	__Host-user_session_same_site	w2wMXs8BYZuOR3piNghrs7s0E5zQmnWizeOb8PkqDVhQ7JxH
+github.com	FALSE	/	TRUE	0	_gh_sess	Z5S84TIZlZ6ihgUC1DbWQXmEs%2B5gE2Dm3H2xEKIo8Upacv7JKOqKj%2FNQcbS9NKjJc7Gb%2FIndihjyuvf3NQqIyKW9Jdx89Oq859JKpQZVOB41GfrlcLJ2KOUI3sh%2BmSm02I0p5wBsoVWHyp2O%2FLGoDhmmycmNbs%2FsUfID5MBuMA0wnUpV7QW1Q11KS%2BXodHJORwfPQW3T2J%2F1N%2B67wCucbQfZvCZ%2FTK4QYF3yS3TW05CRVLzl3mrBe52yB6jgp%2BPIQqcSrjZ%2F5sVr8ZvAqgavsLG734O%2BFXp%2BHa4kxYmMCjMsXmSpHyCaWtagplKJHBfD0AH3bgfW2n4%3D--J67zHbbgMRRs4wf9--awGnKWLAe4nHwO4ErWNv4g%3D%3D

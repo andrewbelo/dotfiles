@@ -9,4 +9,6 @@ return { {
     set("n", "<leader>tq", function() require("trouble").toggle("quickfix") end)
     set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)
   end
-} }
+},
+  { 'Vimjas/vim-python-pep8-indent' },
+}
